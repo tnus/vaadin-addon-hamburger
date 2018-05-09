@@ -14,3 +14,5 @@ buildNumber.properties
 /nuss-vaadin-hamburger-demo/.project
 /nuss-vaadin-hamburger-addon/.project
 /nuss-vaadin-hamburger-addon/.classpath
+/nuss-vaadin-hamburger-addon/src/main/resources/de/nuss/vaadin/addon/hamburger/public/nuss-vaadin-hamburger/styles.css
+/nuss-vaadin-hamburger-addon/src/main/resources/de/nuss/vaadin/addon/hamburger/WidgetSet.gwt.xml
