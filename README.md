@@ -1,10 +1,10 @@
-# MyComponent Add-on for Vaadin 8
+# Hamburger Add-on for Vaadin 8
 
-${ComponentClassName} is a UI component add-on for Vaadin 8.
+Hamburger is a UI component add-on for Vaadin 8.
 
 ## Online demo
 
-Try the add-on demo at <url of the online demo>
+Currently there is no online demo. Please download the repository und build it on your machine.
 
 ## Download release
 
@@ -12,7 +12,7 @@ Official releases of this add-on are available at Vaadin Directory. For Maven in
 
 ## Building and running demo
 
-git clone <url of the MyComponent repository>
+git clone https://github.com/tnus/vaadin-addon-hamburger
 mvn clean install
 cd demo
 mvn jetty:run
@@ -79,7 +79,7 @@ Contributions are welcome, but there are no guarantees that they are accepted as
 
 Add-on is distributed under Apache License 2.0. For license terms, see LICENSE.txt.
 
-MyComponent is written by <...>
+Hamburger is written by Thorsten Nuß
 
 # Developer Guide
 
@@ -107,4 +107,4 @@ For a more comprehensive example, see src/test/java/org/vaadin/template/demo/Dem
 
 ## API
 
-MyComponent JavaDoc is available online at <...>
+Hamburger JavaDoc is available online at <...>
