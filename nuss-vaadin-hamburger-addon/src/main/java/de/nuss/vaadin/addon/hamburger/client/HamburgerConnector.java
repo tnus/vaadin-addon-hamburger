@@ -56,6 +56,13 @@ public class HamburgerConnector extends AbstractComponentConnector {
 
 		// State is directly readable in the client after it is set in server
 		final String text = getState().label;
-		getWidget().setText(text);
+
+		if (getState().active) {
+			getWidget().addStyleName("is-active");
+		} else {
+			getWidget().removeStyleName("is-active");
+		}
+
+		// getWidget().setText(text);
 	}
 }

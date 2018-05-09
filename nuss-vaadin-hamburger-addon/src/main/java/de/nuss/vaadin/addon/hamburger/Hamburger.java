@@ -27,6 +27,8 @@ public class Hamburger extends com.vaadin.ui.AbstractComponent {
 		// getRpcProxy(MyComponentClientRpc.class).alert("Ok, that's enough!");
 		// }
 
+		getState().active = !getState().active;
+
 		// Update shared state. This state update is automatically
 		// sent to the client.
 		// getState().text = "You have clicked " + clickCount + " times";
