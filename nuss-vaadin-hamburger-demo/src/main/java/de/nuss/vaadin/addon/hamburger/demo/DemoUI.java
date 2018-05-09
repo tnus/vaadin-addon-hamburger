@@ -11,33 +11,32 @@ import com.vaadin.ui.Alignment;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-import de.nuss.vaadin.addon.hamburger.MyComponent;
+import de.nuss.vaadin.addon.hamburger.Hamburger;
 
 @Theme("demo")
-@Title("MyComponent Add-on Demo")
+@Title("Hamburger Add-on Demo")
 @SuppressWarnings("serial")
-public class DemoUI extends UI
-{
+public class DemoUI extends UI {
 
-    @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class)
-    public static class Servlet extends VaadinServlet {
-    }
+	@WebServlet(value = "/*", asyncSupported = true)
+	@VaadinServletConfiguration(productionMode = false, ui = DemoUI.class)
+	public static class Servlet extends VaadinServlet {
+	}
 
-    @Override
-    protected void init(VaadinRequest request) {
+	@Override
+	protected void init(VaadinRequest request) {
 
-        // Initialize our new UI component
-        final MyComponent component = new MyComponent();
+		// Initialize our new UI component
+		final Hamburger component = new Hamburger();
 
-        // Show it in the middle of the screen
-        final VerticalLayout layout = new VerticalLayout();
-        layout.setStyleName("demoContentLayout");
-        layout.setSizeFull();
-        layout.setMargin(false);
-        layout.setSpacing(false);
-        layout.addComponent(component);
-        layout.setComponentAlignment(component, Alignment.MIDDLE_CENTER);
-        setContent(layout);
-    }
+		// Show it in the middle of the screen
+		final VerticalLayout layout = new VerticalLayout();
+		layout.setStyleName("demoContentLayout");
+		layout.setSizeFull();
+		layout.setMargin(false);
+		layout.setSpacing(false);
+		layout.addComponent(component);
+		layout.setComponentAlignment(component, Alignment.MIDDLE_CENTER);
+		setContent(layout);
+	}
 }
