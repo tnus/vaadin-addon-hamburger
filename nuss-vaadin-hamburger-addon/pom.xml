@@ -6,7 +6,7 @@
 	<artifactId>nuss-vaadin-hamburger</artifactId>
 	<packaging>jar</packaging>
 	<version>0.1.0-SNAPSHOT</version>
-	<name>MyComponent Add-on</name>
+	<name>Vaadin Hamburger Add-on</name>
 
 	<prerequisites>
 		<maven>3</maven>
@@ -28,24 +28,23 @@
 		<Vaadin-Addon>${project.artifactId}-${project.version}.jar</Vaadin-Addon>
 	</properties>
 
-    <!--
+    
 	<organization>
-		<name>My Name</name>
-		<url>https://github.com/mygithubaccount/MyComponent/</url>
+		<name>Thorsten Nuß</name>
+		<url>https://github.com/tnus/vaadin-addon-hamburger</url>
 	</organization>
 
 	<scm>
-		<url>git://github.com/mygithubaccount/MyComponent.git</url>
-		<connection>scm:git:git://github.com/mygithubaccount/MyComponent.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:/mygithubaccount/${componentClassName}.git</developerConnection>
-		<tag>MyComponent add-on for Vaadin</tag>
+		<url>https://github.com/tnus/vaadin-addon-hamburger.git</url>
+		<connection>https://github.com/tnus/vaadin-addon-hamburger.git</connection>
+		<developerConnection>https://github.com/tnus/vaadin-addon-hamburger.git</developerConnection>
+		<tag>Hamburger add-on for Vaadin</tag>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/mygithubaccount/MyComponent/issues</url>
+		<url>https://github.com/tnus/vaadin-addon-hamburger/issues</url>
 	</issueManagement>
-    -->
 
 	<licenses>
 		<license>
@@ -101,7 +100,7 @@
 							<!-- Package format version - do not change -->
 							<Vaadin-Package-Version>1</Vaadin-Package-Version>
 							<Vaadin-License-Title>${Vaadin-License-Title}</Vaadin-License-Title>
-							<Vaadin-Widgetsets>de.nuss.vaadin.addon.WidgetSet</Vaadin-Widgetsets>
+							<Vaadin-Widgetsets>de.nuss.vaadin.addon.hamburger.WidgetSet</Vaadin-Widgetsets>
 						</manifestEntries>
 					</archive>
 				</configuration>

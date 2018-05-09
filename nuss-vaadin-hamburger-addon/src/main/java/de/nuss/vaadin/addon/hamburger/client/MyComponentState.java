@@ -1,4 +1,4 @@
-package de.nuss.vaadin.addon.client;
+package de.nuss.vaadin.addon.hamburger.client;
 
 public class MyComponentState extends com.vaadin.shared.AbstractComponentState {
 

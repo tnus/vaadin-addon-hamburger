@@ -1,4 +1,4 @@
-package de.nuss.vaadin.addon;
+package de.nuss.vaadin.addon.hamburger;
 
 import junit.framework.Assert;
 import org.junit.Test;

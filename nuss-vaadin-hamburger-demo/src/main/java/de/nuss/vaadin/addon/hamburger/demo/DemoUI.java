@@ -1,6 +1,4 @@
-package de.nuss.vaadin.addon.demo;
-
-import de.nuss.vaadin.addon.MyComponent;
+package de.nuss.vaadin.addon.hamburger.demo;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -12,6 +10,8 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+
+import de.nuss.vaadin.addon.hamburger.MyComponent;
 
 @Theme("demo")
 @Title("MyComponent Add-on Demo")

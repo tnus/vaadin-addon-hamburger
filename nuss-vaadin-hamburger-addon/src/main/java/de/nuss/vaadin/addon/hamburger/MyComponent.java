@@ -1,10 +1,10 @@
-package de.nuss.vaadin.addon;
-
-import de.nuss.vaadin.addon.client.MyComponentClientRpc;
-import de.nuss.vaadin.addon.client.MyComponentServerRpc;
-import de.nuss.vaadin.addon.client.MyComponentState;
+package de.nuss.vaadin.addon.hamburger;
 
 import com.vaadin.shared.MouseEventDetails;
+
+import de.nuss.vaadin.addon.hamburger.client.MyComponentClientRpc;
+import de.nuss.vaadin.addon.hamburger.client.MyComponentServerRpc;
+import de.nuss.vaadin.addon.hamburger.client.MyComponentState;
 
 // This is the server-side UI component that provides public API 
 // for MyComponent

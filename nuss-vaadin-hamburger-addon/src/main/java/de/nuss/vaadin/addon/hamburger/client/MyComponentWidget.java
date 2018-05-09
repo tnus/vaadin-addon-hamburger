@@ -1,4 +1,4 @@
-package de.nuss.vaadin.addon.client;
+package de.nuss.vaadin.addon.hamburger.client;
 
 import com.google.gwt.user.client.ui.Label;
 
