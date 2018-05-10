@@ -11,7 +11,7 @@ public class HamburgerWidget extends Button {
 	public HamburgerWidget() {
 		setStyleName(PRIMARY_STYLE_NAME);
 
-		addStyleName("hamburger--3dx");
+		// addStyleName("hamburger--3dx");
 		setHTML("<span class=\"hamburger-box\"><span class=\"hamburger-inner\"></span></span>");
 	}
 

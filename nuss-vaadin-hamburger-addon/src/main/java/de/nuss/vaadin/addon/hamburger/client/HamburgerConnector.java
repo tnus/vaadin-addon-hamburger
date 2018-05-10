@@ -57,6 +57,12 @@ public class HamburgerConnector extends AbstractComponentConnector {
 		// State is directly readable in the client after it is set in server
 		final String text = getState().label;
 
+		// add type, if is not already set
+		String typeStyleClassName = "hamburger--" + getState().type;
+		if (!getWidget().getStyleName().contains(typeStyleClassName)) {
+			getWidget().addStyleName(typeStyleClassName);
+		}
+
 		if (getState().active) {
 			getWidget().addStyleName("is-active");
 		} else {
