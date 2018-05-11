@@ -1,6 +1,12 @@
 package de.nuss.vaadin.addon.hamburger;
 
+import java.io.Serializable;
+import java.lang.reflect.Method;
+
 import com.vaadin.shared.MouseEventDetails;
+import com.vaadin.shared.Registration;
+import com.vaadin.ui.Component;
+import com.vaadin.util.ReflectTools;
 
 import de.nuss.vaadin.addon.hamburger.client.HamburgerServerRpc;
 import de.nuss.vaadin.addon.hamburger.client.HamburgerState;
@@ -65,18 +71,22 @@ public class Hamburger extends com.vaadin.ui.AbstractComponent {
 	}
 
 	private void handleClick(MouseEventDetails mouseDetails) {
-		System.out.println("Hamburger clicked");
-
-		// Send nag message every 5:th click with ClientRpc
-		// if (++clickCount % 5 == 0) {
-		// getRpcProxy(MyComponentClientRpc.class).alert("Ok, that's enough!");
-		// }
-
 		getState().active = !getState().active;
+		fireToggle();
+	}
 
-		// Update shared state. This state update is automatically
-		// sent to the client.
-		// getState().text = "You have clicked " + clickCount + " times";
+	/**
+	 * Adds the toggle listener.
+	 *
+	 * @see Registration
+	 *
+	 * @param listener
+	 *            the Listener to be added.
+	 * @return a registration object for removing the listener
+	 * @since 8.0
+	 */
+	public Registration addToggleListener(ToggleListener listener) {
+		return addListener(ToggleEvent.class, listener, ToggleListener.TOGGLE_METHOD);
 	}
 
 	/**
@@ -86,5 +96,53 @@ public class Hamburger extends com.vaadin.ui.AbstractComponent {
 	 */
 	public boolean isActive() {
 		return getState().active;
+	}
+
+	/**
+	 * This method toggles the hamburger menu
+	 */
+	public void toggle() {
+		getState().active = !getState().active;
+		fireToggle();
+	}
+
+	/**
+	 * Fires a toggle event to all listeners without any event details.
+	 * <p>
+	 */
+	protected void fireToggle() {
+		fireEvent(new Hamburger.ToggleEvent(this));
+	}
+
+	@FunctionalInterface
+	public interface ToggleListener extends Serializable {
+
+		public static final Method TOGGLE_METHOD = ReflectTools.findMethod(ToggleListener.class, "hamburgerToggle",
+				ToggleEvent.class);
+
+		/**
+		 * Called when a {@link Hamburger} menu has been toggled. A reference to the
+		 * hamburger is given by {@link ToggleEvent#getHamburger()}.
+		 *
+		 * @param event
+		 *            An event containing information about the toggle.
+		 */
+		public void hamburgerToggle(ToggleEvent event);
+	}
+
+	public static class ToggleEvent extends Component.Event {
+
+		public ToggleEvent(Component source) {
+			super(source);
+		}
+
+		/**
+		 * Gets the Hamburger where the event occurred.
+		 *
+		 * @return the Source of the event.
+		 */
+		public Hamburger getHamburger() {
+			return (Hamburger) getSource();
+		}
 	}
 }

@@ -8,7 +8,11 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -35,11 +39,46 @@ public class DemoUI extends UI {
 		lblHeading.addStyleName(ValoTheme.LABEL_H1);
 		layout.addComponent(lblHeading);
 
-		// HorizontalLayout hLayout = new HorizontalLayout();
-		// layout.addComponent(hLayout);
-		//
-		// hLayout.addComponent(new Hamburger());
-		// hLayout.addComponent(new Hamburger(TYPE.SQUEEZE));
+		layout.addComponent(createTypesSample());
+
+		layout.addComponent(createFunctionSample());
+
+	}
+
+	private Component createFunctionSample() {
+		VerticalLayout layout = new VerticalLayout();
+		layout.setMargin(false);
+
+		Label lblHeading = new Label("Functions");
+		lblHeading.addStyleName(ValoTheme.LABEL_H2);
+		layout.addComponent(lblHeading);
+
+		HorizontalLayout hLayout = new HorizontalLayout();
+		layout.addComponent(hLayout);
+
+		Hamburger hamburger = new Hamburger();
+		hLayout.addComponent(hamburger);
+
+		Button btnToggle = new Button("toggle", c -> hamburger.toggle());
+		hLayout.addComponent(btnToggle);
+		hLayout.setComponentAlignment(btnToggle, Alignment.MIDDLE_CENTER);
+
+		CheckBox fActive = new CheckBox("active", hamburger.isActive());
+		hLayout.addComponent(fActive);
+		hLayout.setComponentAlignment(fActive, Alignment.MIDDLE_CENTER);
+		fActive.setEnabled(false);
+		hamburger.addToggleListener(l -> fActive.setValue(l.getHamburger().isActive()));
+
+		return layout;
+	}
+
+	private Component createTypesSample() {
+		VerticalLayout layout = new VerticalLayout();
+		layout.setMargin(false);
+
+		Label lblHeading = new Label("Types");
+		lblHeading.addStyleName(ValoTheme.LABEL_H2);
+		layout.addComponent(lblHeading);
 
 		CssLayout hamburgerLayout = new CssLayout();
 		layout.addComponent(hamburgerLayout);
@@ -60,10 +99,7 @@ public class DemoUI extends UI {
 			}
 		}
 
-		Hamburger whiteHamburger = new Hamburger();
-		whiteHamburger.addStyleName("hamburger-white");
-		whiteHamburger.addStyleName("bg-0");
-		layout.addComponent(whiteHamburger);
+		return layout;
 	}
 
 	private VerticalLayout createHamburgerContainer(Hamburger.TYPE type, boolean reverse) {
