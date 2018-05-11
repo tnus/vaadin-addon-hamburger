@@ -19,6 +19,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
 import de.nuss.vaadin.addon.hamburger.Hamburger;
+import de.nuss.vaadin.addon.hamburger.Hamburger.TYPE;
 
 @Theme("demo")
 @Title("Hamburger Add-on Demo")
@@ -35,9 +36,15 @@ public class DemoUI extends UI {
 		final VerticalLayout layout = new VerticalLayout();
 		setContent(layout);
 
+		Hamburger hamburger = new Hamburger(TYPE.ELASTIC);
 		Label lblHeading = new Label("Hamburger Vaadin Add-on Demo");
 		lblHeading.addStyleName(ValoTheme.LABEL_H1);
-		layout.addComponent(lblHeading);
+
+		HorizontalLayout header = new HorizontalLayout(hamburger, lblHeading);
+		layout.addComponent(header);
+		header.setMargin(false);
+		header.setComponentAlignment(hamburger, Alignment.TOP_LEFT);
+		header.setComponentAlignment(lblHeading, Alignment.TOP_LEFT);
 
 		layout.addComponent(createTypesSample());
 

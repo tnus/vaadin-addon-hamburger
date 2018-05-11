@@ -50,8 +50,8 @@ public class Hamburger extends com.vaadin.ui.AbstractComponent {
 		typeStyleClass = typeStyleClass.replaceFirst("_", "");
 		getState().type = typeStyleClass;
 
-		setWidth("70px");
-		setHeight("61px");
+		// setWidth("70px");
+		// setHeight("61px");
 	}
 
 	/**
